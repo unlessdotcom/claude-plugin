@@ -1,14 +1,16 @@
 {
   "name": "unless",
   "displayName": "Unless",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Work in your Unless account from Claude: turn the questions your AI agent could not answer into reviewed Q&A content for your knowledge base.",
   "author": {
     "name": "Unless",
     "url": "https://unless.com"
   },
   "homepage": "https://docs.unless.com/guides/connect-ai-apps/",
+  "repository": "https://github.com/unlessdotcom/claude-plugin",
   "license": "MIT",
   "privacyPolicyUrl": "https://unless.com/en/legal/visitors/privacy-statement/",
+  "termsOfServiceUrl": "https://unless.com/en/legal/customers/terms-of-service/",
   "icon": ".claude-plugin/icon.png"
 }
