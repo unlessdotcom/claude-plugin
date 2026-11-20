@@ -1,7 +1,7 @@
 {
   "name": "unless",
   "displayName": "Unless",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Work in your Unless account from Claude: fill knowledge gaps from unanswered questions and old tickets, fix wrong answers, test answer quality, keep docs in sync with product changes, review your account, and connect your own API so the AI can act for your logged-in customers.",
   "author": {
     "name": "Unless",

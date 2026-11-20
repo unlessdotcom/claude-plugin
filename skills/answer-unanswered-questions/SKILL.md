@@ -21,7 +21,7 @@ Call `get_insights_grouped_questions` with `websiteId`, `startTime`, `endTime` a
 
 Then drop questions that are not worth an answer: greetings, tests, gibberish, abuse, requests for a human, pasted prompts or documents, questions unrelated to the business, questions about one visitor's own account or order that no general answer can cover, and follow-ups that only make sense inside their conversation ("and where can I find that?"). When a follow-up hides a real question, rephrase it as a standalone question instead of dropping it. Use the `title` of its `conversations`, which summarizes what the conversation was about, and do not open transcripts in this step. Questions from the same conversation that ask the same thing become one question. Mention how many you dropped and why, in one line.
 
-Call `get_training_data` with the `websiteId` and look at the sources with `type: faq`, which are the documents. Skip unanswered questions that an existing document already covers, and say which ones you skipped.
+For each remaining question, call `search_content_library` with the question in plain language, and read the top hits with `get_content_library_page` to see what they actually say. A question can be covered by now, because content may have been added after it was asked. Skip questions the content library already answers, and say which ones you skipped and which page covers each. Keep the pages that are related but do not answer the question, for drafting in step 3.
 
 If nothing is left, tell the user and stop.
 
@@ -32,7 +32,7 @@ Show the remaining questions as a short numbered list, sorted by frequency, with
 When the questions come in more than one language, ask once whether to write every document in one main language (the Unless AI translates when it answers) or each in the language of its question. Draft one answer per question. Use these sources, in this order:
 
 1. What the user told you in this conversation.
-2. The workspace's own content: `get_content_library_tree` and `get_content_library_page` show what the knowledge base already says about related topics. Stay consistent with it.
+2. The workspace's own content: the related pages you found in step 2, and more from `search_content_library` and `get_content_library_page` when you need them. Stay consistent with what the knowledge base already says.
 3. The conversations the question came from: each entry lists up to 10 `conversations`. Transcripts are large, so only open them for the questions you are drafting now, and only when the question and its conversation `title` leave the meaning unclear. Then read one, at most two, with `get_conversations` and a `conversationId`.
 4. Other sources available in this session, such as files, code or documentation the user has open, or web search on the company's own public site.
 

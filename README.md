@@ -9,7 +9,7 @@
 Turns the questions your Unless AI agent could not answer into documents for your knowledge base.
 
 1. Claude fetches the questions your AI could not answer in the past 30 days (or another period you choose), grouped by similarity and sorted by how often they were asked.
-2. It filters out noise and questions an existing document already covers.
+2. It filters out noise and questions your content library already answers.
 3. It drafts an answer for each question from what you tell it, your existing content library, the conversations the question came from, and any other sources available in your session.
 4. You review every draft and approve, edit or skip it. Nothing is saved without your approval, and Claude asks you instead of guessing when it cannot find an answer.
 5. Approved answers are saved as documents in Unless. Unless trains your AI on them and adds them to your content library automatically.
