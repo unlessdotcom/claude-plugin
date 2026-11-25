@@ -13,7 +13,7 @@ Quality control reports are only available on the Enterprise, Flex, Fixed and Pl
 
 ## 1. Pick the workspace
 
-Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use. Every later call needs its `websiteId`.
+Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use, listing each workspace with its `description` when it has one. When the request makes one workspace the clear fit, suggest it. Every later call needs its `websiteId`.
 
 ## 2. Check what is already there
 
@@ -36,7 +36,7 @@ Skip candidates that duplicate an existing control question, that depend on one 
 
 For each candidate, write the expected answer from what the content library says: find it with `search_content_library` and read the page with `get_content_library_page`. Keep expected answers short and factual, because the grader compares the AI's answer against them, and include the facts that must be in a correct answer. Never invent an expected answer. When the content does not say, ask the user.
 
-Answers that depend on who is asking can be tested for a specific audience by sending `audienceId`, from `get_audiences`.
+Answers that depend on who is asking can be tested for a specific audience by sending `audienceId`, from `get_audiences`. Pick the audience by its name and `description`.
 
 Show the questions with their expected answers in batches of about 10 and let the user approve, edit or skip each one. Save each approved one with `upsert_quality_control_question`:
 

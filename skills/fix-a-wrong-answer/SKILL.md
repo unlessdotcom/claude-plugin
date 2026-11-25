@@ -11,7 +11,7 @@ All tools below come from the Unless connector. If they are not available, tell 
 
 ## 1. Pick the workspace
 
-Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use. Every later call needs its `websiteId`.
+Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use, listing each workspace with its `description` when it has one. When the request makes one workspace the clear fit, suggest it. Every later call needs its `websiteId`.
 
 ## 2. Find the answers to fix
 
@@ -44,7 +44,7 @@ Explain the cause in plain language and propose the smallest fix that solves it:
 - **Content in a document**: when the page section's `trainingDataId` belongs to a document (`get_training_data` with that `trainingDataId` returns `type: faq`, with the title in `question` and the body in `answer`), propose the corrected text. Only trust a section's `trainingDataId` when its `sourceInherited` is false. When it is true, the ID is the page's first source, not necessarily the one that wrote the section, so confirm with the user which source holds the text.
 - **Content from a website or file**: Unless cannot change it from here. Name the page and the source URL the user should fix, and Unless picks it up on the next scan. When that takes too long, offer a document with the correct answer in the meantime, and say that the source still has to be fixed so the two do not conflict.
 - **Missing content**: a new document, with the question as the title.
-- **Wrong audience**: a document restricted to the right audience with `restrictedAudiences`, using an audience from `get_audiences`.
+- **Wrong audience**: a document restricted to the right audience with `restrictedAudiences`, using the audience from `get_audiences` whose name or `description` fits the visitors the answer is for.
 - **Instructions**: the exact change to `customRules`. Add or reword one rule, and keep every other rule as it is.
 - **Procedure**: the change to its description or settings. Procedures are complex, so describe the change and let the user decide whether to apply it here or in the dashboard.
 

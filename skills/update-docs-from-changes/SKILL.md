@@ -11,7 +11,7 @@ All Unless tools below come from the Unless connector. If they are not available
 
 ## 1. Pick the workspace
 
-Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use. Every later call needs its `websiteId`.
+Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use, listing each workspace with its `description` when it has one. When the request makes one workspace the clear fit, suggest it. Every later call needs its `websiteId`.
 
 ## 2. Get the change
 

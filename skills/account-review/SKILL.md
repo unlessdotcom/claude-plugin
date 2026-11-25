@@ -11,7 +11,7 @@ All tools below come from the Unless connector. If they are not available, tell 
 
 ## 1. Pick the workspace
 
-Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to review. When several workspaces look like they serve the same product, note it: running them separately often splits the content and the reporting.
+Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to review, listing each workspace with its `description` when it has one. When several workspaces look like they serve the same product, judging by their names, domains and descriptions, note it: running them separately often splits the content and the reporting.
 
 Default to the past 30 days, compared with the 30 days before, unless the user asked for another period. The insights totals and per-day tools take `startTime` and `endTime` as `YYYY-MM-DD` days. The grouped questions and common sources tools take Unix timestamps in milliseconds.
 
@@ -28,6 +28,7 @@ Call these, and keep going when one fails or returns nothing:
 - `get_procedures`: what the AI can do beyond answering, and whether procedures are enabled and have a description.
 - `get_quality_control_reports`: whether answer quality is measured, and the latest grade.
 - `get_tasks` with the open state: work waiting for someone in the dashboard.
+- `get_audiences`: the visitor groups content and answers can be scoped to, and whether each has a `description`.
 
 ## 3. Find what matters most
 
@@ -38,6 +39,7 @@ Look for the improvements with the biggest effect on this workspace, backed by t
 - **Broken or stale sources**: failed scans, websites that are barely indexed, removed sources that are still cited.
 - **Unused capabilities**: maturity features that are not implemented and not skipped, such as the content library, the help center, lifecycle stages, procedures or secure identification. Name the ones whose prerequisites are already in place first.
 - **Configuration**: missing languages visitors use, `customRules` that contradict each other, quality control that was never set up.
+- **Missing descriptions**: the workspace, or audiences that are not `readOnly`, without a `description`. Claude and other AI agents choose a workspace or audience by its description, so name the ones that lack one. Audience descriptions can be set with `upsert_audience`; a workspace description is set in the dashboard, under Account > Workspaces > General.
 - **Trends**: outcomes or usage dropping compared with the previous period.
 
 Leave out anything the account `skipped` on purpose, unless the data shows it now hurts them.

@@ -11,7 +11,7 @@ All Unless tools below come from the Unless connector. If they are not available
 
 ## 1. Pick the workspace
 
-Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use. Every later call needs its `websiteId`.
+Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use, listing each workspace with its `description` when it has one. When the request makes one workspace the clear fit, suggest it. Every later call needs its `websiteId`.
 
 ## 2. Get the tickets
 
@@ -60,7 +60,7 @@ Write one document per group. When the questions in the tickets come in more tha
 - Never invent facts. Prices, limits, dates, policies and product behavior must come from the tickets, the content library or the user. When tickets disagree or are old, ask the user which answer is current.
 - Stay under 20,000 characters for the title and body together.
 
-Some answers depend on who is asking, for example accountants versus business owners. Call `get_audiences` once and, when an existing audience matches, propose restricting the document to it with `restrictedAudiences`. Never create audiences in this skill.
+Some answers depend on who is asking, for example accountants versus business owners. Call `get_audiences` once and, when an existing audience matches by its name or `description`, propose restricting the document to it with `restrictedAudiences`. Never create audiences in this skill.
 
 ## 6. Review every draft with the user
 

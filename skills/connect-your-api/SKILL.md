@@ -13,7 +13,7 @@ Never save the procedure or change code without the user's approval. Show what y
 
 ## 1. Pick the workspace
 
-Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use. Every later call needs its `websiteId`.
+Call `list_workspaces`. With one workspace, use it and name it. With more than one, ask the user which one to use, listing each workspace with its `description` when it has one. When the request makes one workspace the clear fit, suggest it. Every later call needs its `websiteId`.
 
 Call `get_procedures` and look for procedures with `command: documented-api`. When one already exists for this API, update it: keep its `actionId` and send the whole procedure back with your changes, because the write replaces it. Ask before adding a second one for the same API.
 
