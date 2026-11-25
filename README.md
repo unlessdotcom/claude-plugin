@@ -63,6 +63,44 @@ Install the plugin and connect the Unless connector when Claude asks. You log in
 
 Claude acts as you, with exactly your role and permissions in Unless. You need permission to manage AI training data to save documents, to manage procedures to connect your API, and to manage the AI configuration and quality control for the skills that change those.
 
+## What the Unless tools can do
+
+The Unless MCP server gives Claude the tools below. Read tools change nothing. Tools that change something are marked as destructive in the server, and the skills ask for your approval before using them. Each tool only works with your own permissions in Unless.
+
+**Read:** workspaces, insights, AI maturity, training data, the content library and its change log, conversations, procedures, audiences, components, tasks, the AI configuration, help center publish status and quality control questions and reports.
+
+**Publish and go live:**
+
+- Publish the help center, which deploys your FAQs, categories and settings to your live help center site.
+- Create and update components (personalizations), which change what visitors see on your website.
+- Create and update documents and training data sources. The AI uses them in its answers to your visitors right away.
+- Accept suggested content library changes, which writes them to the library.
+- Change the AI configuration: custom rules, language, product name, answer length, PII filtering and feedback replies.
+
+**Change or discard existing content:**
+
+- Update and overwrite existing documents, procedures, components, audiences, help center FAQs and categories and control questions.
+- Roll a content library page back to an earlier version, or force a page to be imported again.
+- Discard suggested content library changes.
+- Create tasks, mark them as done or deleted, and assign them to a teammate.
+
+The tools cannot delete documents, components, FAQs or categories. That is only possible in the Unless dashboard.
+
+**Change access:**
+
+- Create and update audiences. Audiences decide which visitors see a personalization and which content the AI may use for which visitor, so changing one changes who gets access to what.
+- Create and update procedures. A procedure lets the AI send requests to your own API for your logged-in customers, including requests that change data when you allow methods other than reading.
+
+**Send:**
+
+- Assigning a task to a teammate sends them an email from Unless.
+- Procedures let the AI send requests to your own API, as described above.
+- A website source makes Unless crawl that website.
+
+The tools send no other email, and never message your visitors directly.
+
+**Pay:** none. The tools cannot buy anything, make payments or change your subscription.
+
 ## Data and privacy
 
 The plugin only talks to the Unless MCP server at `https://mcp.unless.com/mcp`. Through it, Claude reads your workspaces, insights, AI maturity, training data, content library, conversation transcripts, procedures, audiences, tasks and quality control reports. It creates and updates documents, procedures and control questions, updates the custom rules of your AI, and starts quality control reports, always after your approval. Some skills also read tickets or code from your own session. Of that, the plugin only sends Unless the content you approve, such as an anonymous document or the API reference of a procedure, never the tickets or code themselves. The plugin sends no data anywhere else and stores nothing itself. See the [Unless privacy statement](https://unless.com/en/legal/visitors/privacy-statement/), the [data processing agreement](https://unless.com/en/legal/customers/data-processing-agreement/) and the [guide on connecting AI apps](https://docs.unless.com/guides/connect-ai-apps/).
